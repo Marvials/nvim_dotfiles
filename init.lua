@@ -51,6 +51,7 @@ local plugins = {
     require("plugins.nvim-ufo"),
     require("plugins.flash"),
     require("plugins.debugging"),
+    require("plugins.which-key"),
 }
 
 local opts = {
