@@ -50,6 +50,7 @@ local plugins = {
     require("plugins.render-markdown"),
     require("plugins.nvim-ufo"),
     require("plugins.flash"),
+    require("plugins.debugging"),
 }
 
 local opts = {
