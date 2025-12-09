@@ -52,6 +52,10 @@ local plugins = {
     require("plugins.flash"),
     require("plugins.debugging"),
     require("plugins.which-key"),
+    require("plugins.indent-blankline"),
+    require("plugins.grug-far"),
+    require("plugins.diffview"),
+    require("plugins.neotest"),
 }
 
 local opts = {
