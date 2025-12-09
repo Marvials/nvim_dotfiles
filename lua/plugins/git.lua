@@ -19,17 +19,17 @@ return {
                     local bufnr = vim.api.nvim_get_current_buf()
                     local opts = {buffer = bufnr, remap = false}
 
-                    vim.keymap.set("n", "<leader>P", function()
+                    vim.keymap.set("n", "<leader>Pu", function()
                         vim.cmd.Git('push')
                     end, opts)
 
                     -- NOTE: rebase always
-                    vim.keymap.set("n", "<leader>p", function()
+                    vim.keymap.set("n", "<leader>pu", function()
                         vim.cmd.Git({'pull',  '--rebase'})
                     end, opts)
 
                     -- NOTE: easy set up branch that wasn't setup properly
-                    vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
+                    vim.keymap.set("n", "<leader>tu", ":Git push -u origin ", opts);
                 end,
             })
         end,
