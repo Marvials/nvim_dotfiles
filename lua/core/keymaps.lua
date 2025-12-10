@@ -23,8 +23,6 @@ keymap("x", "<leader>p", [["_dP]])
 
 keymap("v", "p", '"_dp', opts)
 
-keymap({ "n", "v" }, "<leader>d", [["_d]])
-
 keymap("n", "x", '"_x', opts) --prevents deleted characters from copying to clipboard
 -- End clipboard things
 
@@ -35,11 +33,8 @@ keymap("n", "<C-c>", ":nohl<CR>", { desc = "Clear search hl", silent = true})
 keymap("n", "<leader>fo", vim.lsp.buf.format)
 keymap("n", "Q", "<nop>")
 
--- Replace the word cursor is on lobally
-keymap("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word cursor is on globally" })
 
 keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "makes file executable" })
-
 -- Hightlight yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",

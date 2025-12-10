@@ -56,6 +56,7 @@ local plugins = {
     require("plugins.grug-far"),
     require("plugins.diffview"),
     require("plugins.neotest"),
+    require("plugins.lsp.lspsaga"),
 }
 
 local opts = {

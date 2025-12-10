@@ -6,7 +6,7 @@ return {
     cmd = "GrugFar",
     keys = {
         {
-            "<leader>srp",
+            "<leader>sr",
             function()
                 local grug = require("grug-far")
                 local ext = vim.bo.filetype
@@ -17,7 +17,7 @@ return {
             desc = "Search and Replace (Grug-far)",
         },
         {
-            "<leader>srpw",
+            "<leader>srw",
             function()
                local grug = require("grug-far")
                 local ext = vim.bo.filetype

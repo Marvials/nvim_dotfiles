@@ -75,10 +75,10 @@ return {
                 },
             },
         })
-        
+       
         -- Keymaps para abrir o diffview facilmente
-        vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
-        vim.keymap.set("n", "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", { desc = "Open File History" })
-        vim.keymap.set("n", "<leader>gc", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" })
+        vim.keymap.set("n", "<leader>dio", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
+        vim.keymap.set("n", "<leader>dih", "<cmd>DiffviewFileHistory %<cr>", { desc = "Open File History" })
+        vim.keymap.set("n", "<leader>dic", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" })
     end,
 }
