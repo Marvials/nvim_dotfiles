@@ -57,6 +57,11 @@ return {
                 "pylint",
                 "clangd",
                 "denols",
+                "gofumpt", --Formatador mais estrito que gofmt
+                "goimports", --Gerencia imports automaticamente
+                "gomodifytags", --Adiciona tags em structs via coce actions
+                "impl", --Gera interfaces via code actitons
+                "delve" -- Debugger Golang
                 -- { 'eslint_d', version = '13.1.2' },
             },
 

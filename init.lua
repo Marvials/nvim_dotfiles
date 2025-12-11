@@ -19,6 +19,7 @@ require("core.keymaps")
 
 local plugins = {
     require("plugins.colorscheme"),
+    require("plugins.nvim-web-devicons"),
     require("plugins.auto-pairs"),
     require("plugins.neotree"),
     require("plugins.snacks"),
