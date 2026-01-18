@@ -123,7 +123,7 @@ return {
                         notify = true,
                         command = "magick"
                     },
-                    img_dirs = { "img", "images", "assets", "static", "public", "media", "attachments","Archives/All-Vault-Images/", "~/Library", "~/Downloads", "~/images" },
+                    img_dirs = { "img", "images", "assets", "static", "public", "media", "attachments","Archives/All-Vault-Images/", "~/Library", "~/Downloads",  },
                 },
                 dashboard = {
                     enabled = true,

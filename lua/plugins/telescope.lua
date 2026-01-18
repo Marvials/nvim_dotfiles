@@ -15,6 +15,8 @@ return {
 
 		telescope.load_extension("fzf")
 		telescope.load_extension("themes")
+        telescope.load_extension("aerial")
+        telescope.load_extension("noice")
 
 		telescope.setup({
 			defaults = {
@@ -44,6 +46,7 @@ return {
 			local word = vim.fn.expand("<cWORD>")
 			builtin.grep_string({ search = word })
 		end, { desc = "Find Connected Words under cursor" })
+        vim.keymap.set("n", "<leader>st", "<cmd>Telescope aerial<CR>", { desc = "Search Symbols (Aerial)"})
 
 		vim.keymap.set("n", "<leader>ths", "<cmd>Telescope themes<CR>", { noremap = true, silent = true, desc = "Theme Switcher" })
     end,

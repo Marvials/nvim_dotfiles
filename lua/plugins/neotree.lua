@@ -27,12 +27,6 @@ return {
 			["service"] = { icon = "", hl = "NeoTreeGold" },
 			["services"] = { icon = "", hl = "NeoTreeGold" },
 
-			-- Cmd (Entrada/Main)
-			["cmd"] = { icon = "", hl = "NeoTreeGreen" },
-
-			-- Internal (Privado)
-			["internal"] = { icon = "", hl = "NeoTreeGray" },
-
 			-- Pkg (Bibliotecas públicas)
 			["pkg"] = { icon = "", hl = "NeoTreeBlue" },
 

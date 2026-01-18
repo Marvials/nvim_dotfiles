@@ -33,7 +33,6 @@ local plugins = {
     require("plugins.treesitter"),
     require("plugins.bufferline"),
     require("plugins.lualine"),
-    require("plugins.wilder"),
     require("plugins.showkey"),
     require("plugins.vim-maximizer"),
     require("plugins.git"),
@@ -58,6 +57,8 @@ local plugins = {
     require("plugins.diffview"),
     require("plugins.neotest"),
     require("plugins.lsp.lspsaga"),
+    require("plugins.rainbow-delimiters"),
+    require("plugins.aerial"),
 }
 
 local opts = {

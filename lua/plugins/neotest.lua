@@ -55,7 +55,7 @@ return {
         vim.keymap.set("n", "<leader>tf", function() neotest.run.run(vim.fn.expand("%")) end, { desc = "Test File" })
         vim.keymap.set("n", "<leader>ta", function() neotest.run.run(vim.loop.cwd()) end, { desc = "Test All (Project)" })
         vim.keymap.set("n", "<leader>ts", function() neotest.summary.toggle() end, { desc = "Toggle Test Summary" })
-        vim.keymap.set("n", "<leader>to", function() neotest.output.open({ enter = true }) end, { desc = "Show Test Output" })
+        vim.keymap.set("n", "<leader>two", function() neotest.output.open({ enter = true }) end, { desc = "Show Test Output" })
         vim.keymap.set("n", "<leader>tp", function() neotest.output_panel.toggle() end, { desc = "Toggle Output Panel" })
     end,
 }

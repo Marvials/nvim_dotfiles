@@ -41,5 +41,6 @@ return {
         -- Hover Doc (Documentação)
         -- OBS: O Noice.nvim também mexe nisso. Teste qual você prefere.
         keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Doc" })
+        keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { desc = "Go to Definition" })
     end,
 }
