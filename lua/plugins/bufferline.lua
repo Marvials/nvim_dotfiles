@@ -43,7 +43,10 @@ return {
                         delay = 200,
                         reveal = {'close'}
                     }
-                  }
+                  },
+
+                require('transparent').clear_prefix('Bufferline')
+                
         })
 
         end,

@@ -50,12 +50,12 @@ return {
         })
 
         -- Keymaps
-        vim.keymap.set("n", "<leader>tm", function() neotest.run.run() end, { desc = "Test Method (Nearest)" })
-        vim.keymap.set("n", "<leader>tM", function() neotest.run.run({strategy = "dap"}) end, { desc = "Debug Method (Nearest)" })
-        vim.keymap.set("n", "<leader>tf", function() neotest.run.run(vim.fn.expand("%")) end, { desc = "Test File" })
-        vim.keymap.set("n", "<leader>ta", function() neotest.run.run(vim.loop.cwd()) end, { desc = "Test All (Project)" })
-        vim.keymap.set("n", "<leader>ts", function() neotest.summary.toggle() end, { desc = "Toggle Test Summary" })
-        vim.keymap.set("n", "<leader>two", function() neotest.output.open({ enter = true }) end, { desc = "Show Test Output" })
-        vim.keymap.set("n", "<leader>tp", function() neotest.output_panel.toggle() end, { desc = "Toggle Output Panel" })
+        vim.keymap.set("n", "<leader>ntm", function() neotest.run.run() end, { desc = "Test Method (Nearest)" })
+        vim.keymap.set("n", "<leader>ntM", function() neotest.run.run({strategy = "dap"}) end, { desc = "Debug Method (Nearest)" })
+        vim.keymap.set("n", "<leader>ntf", function() neotest.run.run(vim.fn.expand("%")) end, { desc = "Test File" })
+        vim.keymap.set("n", "<leader>nta", function() neotest.run.run(vim.loop.cwd()) end, { desc = "Test All (Project)" })
+        vim.keymap.set("n", "<leader>nts", function() neotest.summary.toggle() end, { desc = "Toggle Test Summary" })
+        vim.keymap.set("n", "<leader>ntwo", function() neotest.output.open({ enter = true }) end, { desc = "Show Test Output" })
+        vim.keymap.set("n", "<leader>ntp", function() neotest.output_panel.toggle() end, { desc = "Toggle Output Panel" })
     end,
 }

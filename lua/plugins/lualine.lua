@@ -4,9 +4,10 @@ return {
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+        require('transparent').clear_prefix('lualine')
 
 		local colors = {
-            color0 = "#092236",
+            color0 = "#2323FF",
             color1 = "#ff5874",
             color2 = "#c3ccdc",
 			color3 = "#1c1e26",
@@ -30,7 +31,7 @@ return {
 				c = { fg = colors.color2, bg = colors.color3 },
 			},
 			visual = {
-				a = { fg = colors.color0, bg = colors.color8, gui = "bold" },
+				a = { fg = colors.color8, bg = colors.color8, gui = "bold" },
 				b = { fg = colors.color2, bg = colors.color3 },
 			},
 			insert = {

@@ -17,51 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 require("core.options")
 require("core.keymaps")
 
-local plugins = {
-    require("plugins.colorscheme"),
-    require("plugins.nvim-web-devicons"),
-    require("plugins.auto-pairs"),
-    require("plugins.neotree"),
-    require("plugins.snacks"),
-    require("plugins.todo-comments"),
-    require("plugins.auto-sessions"),
-    require("plugins.telescope"),
-    require("plugins.undertree"),
-    require("plugins.init"),
-    require("plugins.harpoon"),
-    require("plugins.mini"),
-    require("plugins.treesitter"),
-    require("plugins.bufferline"),
-    require("plugins.lualine"),
-    require("plugins.showkey"),
-    require("plugins.vim-maximizer"),
-    require("plugins.git"),
-    require("plugins.gitworktree"),
-    require("plugins.nvim-cmp"),
-    require("plugins.tailwind-tools"),
-    require("plugins.lsp.mason"),
-    require("plugins.lsp.lspconfig"),
-    require("plugins.noice"),
-    require("plugins.linting"),
-    require("plugins.formatting"),
-    require("plugins.trouble"),
-    require("plugins.emmet"),
-    require("plugins.image-support"),
-    require("plugins.render-markdown"),
-    require("plugins.nvim-ufo"),
-    require("plugins.flash"),
-    require("plugins.debugging"),
-    require("plugins.which-key"),
-    require("plugins.indent-blankline"),
-    require("plugins.grug-far"),
-    require("plugins.diffview"),
-    require("plugins.neotest"),
-    require("plugins.lsp.lspsaga"),
-    require("plugins.rainbow-delimiters"),
-    require("plugins.aerial"),
-}
-
-local opts = {
-}
-
-require("lazy").setup(plugins, opts)
+require("lazy").setup({
+    spec = {
+        { import = "plugins" },
+        { import = "plugins.lsp" },
+    },
+})

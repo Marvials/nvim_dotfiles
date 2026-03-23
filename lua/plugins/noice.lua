@@ -1,39 +1,47 @@
 return {
     {
-		"folke/noice.nvim",
+        "folke/noice.nvim",
         event = "VeryLazy",
         enabled = true,
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-		},
-        config = function ()
-           local noice = require("noice")
+        dependencies = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+        },
+        config = function()
+            local noice = require("noice")
 
             noice.setup({
-				cmdline = {
-					enabled = true,
-					view = "cmdline_popup",
-					format = {
-						cmdline = { pattern = "", icon = "󱐌 :", lang = "vim" },
+                cmdline = {
+                    enabled = true,
+                    view = "cmdline_popup",
+                    format = {
+                        cmdline = { pattern = "", icon = "󱐌 :", lang = "vim" },
                         help = { pattern = "^:%s*he?l?p?%s+", icon = " 󰮦 :" },
                         search_down = { kind = "search", pattern = "^/", icon = "/", lang = "regex" },
                         search_up = { kind = "search", pattern = "^%?", icon = "/", lang = "regex" },
-						filter = { pattern = "^:%s*!", icon = " $ :", lang = "bash" },
-						lua = {
-							pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" },
-							icon = "  :",
-							lang = "lua",
-						},
-						input = { view = "cmdline_input", icon = " 󰥻 :" }, -- Used by input()
-					},
-				},
+                        filter = { pattern = "^:%s*!", icon = " $ :", lang = "bash" },
+                        lua = {
+                            pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" },
+                            icon = "  :",
+                            lang = "lua",
+                        },
+                        input = { view = "cmdline_input", icon = " 󰥻 :" }, -- Used by input()
+                    },
+                },
                 views = {
                     popupmenu = {
                         relative = "editor",
                         position = {
-                            row = 8,
+                            row = "53%",
                             col = "50%",
+                        },
+                        size = {
+                            width = 60,
+                            height = "auto",
+                        },
+                        border = {
+                            style = "rounded",
+                            padding = { 0, 1},
                         },
                         win_options = {
                             winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
@@ -51,20 +59,20 @@ return {
                         },
                     }
                 },
-				lsp = {
-					progress = {
-						enabled = true,
-					},
-					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-					},
+                lsp = {
+                    progress = {
+                        enabled = true,
+                    },
+                    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+                    override = {
+                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                        ["vim.lsp.util.stylize_markdown"] = true,
+                        ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+                    },
                     signature = {
                         auto_open = { enabled = false }, -- disable auto signature help on insert mode
                     },
-				},
+                },
                 routes = {
                     {
                         filter = {
@@ -80,18 +88,18 @@ return {
                         opts = { skip = true },
                     }
                 },
-				messages = {
-					enabled = true,
-				},
+                messages = {
+                    enabled = true,
+                },
                 health = {
                     checker = true,
                 },
-				popupmenu = {
-					enabled = true,
-				},
-				signature = {
-					enabled = true,
-				},
+                popupmenu = {
+                    enabled = true,
+                },
+                signature = {
+                    enabled = true,
+                },
             })
         end
     }
