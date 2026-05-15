@@ -22,13 +22,12 @@ return {
             -- PICKER (SEARCH & EXPLORER)
             -- Docs: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
             -- ========================================================================
-            explorer = {
-
-            },
             picker = {
                 enabled = true,
                 sources = {
                     explorer = {
+                        hidden = true,
+                        ignored = true,
                     },
                     files = { hidden = true },
                 },
@@ -263,6 +262,7 @@ return {
 
             -- File Management
             { "<leader>e",   function() require("snacks").explorer() end,                                 desc = "Explorer" },
+            { "<leader>sm",  function() require("snacks").maximize() end,                                 desc = "Maximize Split" },
             { "<leader>rN",  function() require("snacks").rename.rename_file() end,                       desc = "Rename File" },
             { "<leader>dB",  function() require("snacks").bufdelete() end,                                desc = "Delete Buffer" },
 
@@ -277,13 +277,31 @@ return {
             -- Utils
             { "<leader>th",  function() require("snacks").picker.colorschemes({ layout = "ivy" }) end,    desc = "Colorschemes" },
             { "<leader>vh",  function() require("snacks").picker.help() end,                              desc = "Help" },
-        }
+
+            -- Terminal
+            { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
+            { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore" },
+        },
+        config = function(_, opts)
+            require("snacks").setup(opts)
+
+            -- Abrir dashboard se o Neovim for iniciado com um diretório
+            vim.api.nvim_create_autocmd("VimEnter", {
+                once = true,
+                callback = function()
+                    if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) == 1 then
+                        require("snacks").dashboard.open()
+                    end
+                end,
+            })
+        end,
     },
     {
         "folke/todo-comments.nvim",
         event = { "BufReadPre", "BufNewFile" },
         keys = {
             { "<leader>pt", function() require("snacks").picker.todo_comments() end,                                                desc = "Todo (All)" },
+
             { "<leader>pT", function() require("snacks").picker.todo_comments({ keywords = { "TODO", "FORGETNOT", "FIXME" } }) end, desc = "Todo (Main)" },
         }
     }

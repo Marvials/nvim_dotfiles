@@ -21,7 +21,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.showtabline = 4
+vim.opt.showtabline = 2
 vim.opt.backspace = {"start", "eol", "indent"}
 vim.opt.isfname:append("@-@")
 
@@ -37,6 +37,8 @@ vim.opt.inccommand = "split"
 -- ===============================
 -- Janelas e Arquivos
 -- ===============================
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.swapfile = false

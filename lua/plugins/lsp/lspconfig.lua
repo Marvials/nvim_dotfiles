@@ -14,30 +14,23 @@ return {
 				local opts = { buffer = ev.buf, silent = true }
 
 				-- Keymaps
-				-- opts.desc = "Show LSP references"
-				-- vim.keymap.set("n", "<leader>lR", "<cmd>Telescope lsp_references<CR>", opts)
+				opts.desc = "Show LSP references"
+				vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, opts)
 
 				opts.desc = "Go to declaration"
-				vim.keymap.set("n", "<leader>lD", vim.lsp.buf.declaration, opts)
+				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
 				opts.desc = "Show LSP definitions"
-				vim.keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<CR>", opts)
+				vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, opts)
 
 				opts.desc = "Show LSP implementations"
-				vim.keymap.set("n", "<leader>li", "<cmd>Telescope lsp_implementations<CR>", opts)
+				vim.keymap.set("n", "gi", function() Snacks.picker.lsp_implementations() end, opts)
 
 				opts.desc = "Show LSP type definitions"
-				vim.keymap.set("n", "<leader>lt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-
-				-- opts.desc = "See available code actions"
-				-- vim.keymap.set({ "n", "v" }, "<leader>lca", function()
-				--     vim.lsp.buf.code_action()
-				-- end, opts)
-				-- opts.desc = "Smart rename"
-				-- vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename, opts)
+				vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions() end, opts)
 
 				opts.desc = "Show buffer diagnostics"
-				vim.keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+				vim.keymap.set("n", "<leader>lD", function() Snacks.picker.diagnostics_buffer() end, opts)
 
 				-- opts.desc = "Show line diagnostics"
 				-- vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, opts)

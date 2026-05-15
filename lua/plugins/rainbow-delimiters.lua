@@ -1,32 +1,58 @@
 return {
     "HiPhish/rainbow-delimiters.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
         local rainbow_delimiters = require("rainbow-delimiters")
 
-        vim.g.rainbow_delimiters = {
+        -- Lista de filetypes onde o plugin deve ser desativado
+        local blacklist = {
+            "noice",
+            "snacks_picker",
+            "snacks_picker_input",
+            "snacks_input",
+            "neo-tree",
+            "lazy",
+            "mason",
+            "notify",
+            "noice_popup",
+            "noice_cmdline",
+        }
+
+        require("rainbow-delimiters.setup").setup({
             strategy = {
-                -- Estratégia global para a maioria dos arquivos
-                [''] = rainbow_delimiters.strategy['global'],
-                -- Use estratégia local para arquivos muito grandes ou complexos (opcional)
-                vim = rainbow_delimiters.strategy['local'],
+                [""] = function(bufnr)
+                    local ft = vim.bo[bufnr].filetype
+                    local buftype = vim.bo[bufnr].buftype
+
+                    -- Desativa para buffers de UI e buffers especiais
+                    if buftype == "nofile" or buftype == "prompt" then
+                        return nil
+                    end
+
+                    for _, blacklisted in ipairs(blacklist) do
+                        if ft == blacklisted then
+                            return nil
+                        end
+                    end
+
+                    return rainbow_delimiters.strategy["global"]
+                end,
+                vim = rainbow_delimiters.strategy["local"],
             },
             query = {
-                [''] = 'rainbow-delimiters',
-                lua = 'rainbow-blocks',
-                -- Em Go, html, etc., o padrão funciona muito bem
+                [""] = "rainbow-delimiters",
+                lua = "rainbow-blocks",
             },
-            -- Se quiser personalizar as cores para combinar com seu tema Monokai Pro
-            -- O padrão já busca cores do seu esquema, mas aqui você pode forçar:
             highlight = {
-                'RainbowDelimiterRed',
-                'RainbowDelimiterYellow',
-                'RainbowDelimiterBlue',
-                'RainbowDelimiterOrange',
-                'RainbowDelimiterGreen',
-                'RainbowDelimiterViolet',
-                'RainbowDelimiterCyan',
+                "RainbowDelimiterRed",
+                "RainbowDelimiterYellow",
+                "RainbowDelimiterBlue",
+                "RainbowDelimiterOrange",
+                "RainbowDelimiterGreen",
+                "RainbowDelimiterViolet",
+                "RainbowDelimiterCyan",
             },
-        }
+        })
     end,
 }

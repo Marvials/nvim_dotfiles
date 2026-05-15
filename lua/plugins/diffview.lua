@@ -1,6 +1,11 @@
 return {
     "sindrets/diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+    keys = {
+        { "<leader>dio", "<cmd>DiffviewOpen<cr>", desc = "Open Diffview" },
+        { "<leader>dih", "<cmd>DiffviewFileHistory %<cr>", desc = "Open File History" },
+        { "<leader>dic", "<cmd>DiffviewClose<cr>", desc = "Close Diffview" },
+    },
     config = function()
         local actions = require("diffview.actions")
 
@@ -75,10 +80,5 @@ return {
                 },
             },
         })
-       
-        -- Keymaps para abrir o diffview facilmente
-        vim.keymap.set("n", "<leader>dio", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
-        vim.keymap.set("n", "<leader>dih", "<cmd>DiffviewFileHistory %<cr>", { desc = "Open File History" })
-        vim.keymap.set("n", "<leader>dic", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" })
     end,
 }

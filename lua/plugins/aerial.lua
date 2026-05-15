@@ -23,8 +23,35 @@ return {
         placement = "window",
       },
 
-      -- Ícones (usa os mesmos do devicons/lspkind que você já tem)
-      show_guides = true, -- Linhas guia de indentação na árvore
+      -- Ícones personalizados (Nerd Fonts)
+      icons = {
+        Array         = "󱡠 ",
+        Boolean       = "󰨙 ",
+        Class         = "󰠱 ",
+        Constant      = "󰏿 ",
+        Constructor   = " ",
+        Enum          = " ",
+        EnumMember    = " ",
+        Event         = " ",
+        Field         = "󰜢 ",
+        File          = "󰈙 ",
+        Function      = "󰊕 ",
+        Interface     = " ",
+        Key           = "󰌆 ",
+        method        = "󰊕 ",
+        Module        = " ",
+        Namespace     = "󰦮 ",
+        Null          = "󰟢 ",
+        Number        = "󰎠 ",
+        Object        = " ",
+        Operator      = "󰆕 ",
+        Package       = " ",
+        Property      = "󰜢 ",
+        String        = "󰉿 ",
+        Struct        = "󰙅 ",
+        TypeParameter = "󰊄 ",
+        Variable      = "󰫧 ",
+      },
 
       -- Filtra o que mostrar (reduz ruído)
       filter_kind = {
@@ -36,8 +63,15 @@ return {
         "Module",
         "Method",
         "Struct",
-        "Variable", -- Útil em Go para variáveis globais exportadas
+        "Variable",
+        "Field",
+        "Property",   -- Adicionado: Muitos LSPs usam Property para atributos
+        "Constant",
+        "EnumMember", -- Adicionado: Para ver os itens de um Enum
       },
+
+      -- Mostra ícones de visibilidade (public, private, etc) se disponível
+      show_guides = true,
 
       -- Quando anexar ao buffer, definir atalhos locais
       on_attach = function(bufnr)

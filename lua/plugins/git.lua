@@ -1,39 +1,4 @@
 return {
-    -- for all git plugins 
-	{
-		"tpope/vim-fugitive",
-        config = function()
-            vim.keymap.set("n", "<leader>gg", vim.cmd.Git)
-
-            local myFugitive = vim.api.nvim_create_augroup("myFugitive", {})
-
-            local autocmd = vim.api.nvim_create_autocmd
-            autocmd("BufWinEnter", {
-                group = myFugitive,
-                pattern = "*",
-                callback = function()
-                    if vim.bo.ft ~= "fugitive" then
-                        return
-                    end
-
-                    local bufnr = vim.api.nvim_get_current_buf()
-                    local opts = {buffer = bufnr, remap = false}
-
-                    vim.keymap.set("n", "<leader>Pu", function()
-                        vim.cmd.Git('push')
-                    end, opts)
-
-                    -- NOTE: rebase always
-                    vim.keymap.set("n", "<leader>pu", function()
-                        vim.cmd.Git({'pull',  '--rebase'})
-                    end, opts)
-
-                    -- NOTE: easy set up branch that wasn't setup properly
-                    vim.keymap.set("n", "<leader>tu", ":Git push -u origin ", opts);
-                end,
-            })
-        end,
-    },
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -74,25 +39,4 @@ return {
 			end,
 		},
 	},
-    -- Lazy git 
-    {
-        "kdheepak/lazygit.nvim",
-        --NOTE: Trying out lazygit in Snacks nvim
-        enabled = false,
-        cmd = {
-            "LazyGit",
-            "LazyGitConfig",
-            "LazyGitCurrentFile",
-            "LazyGitFilter",
-            "LazyGitFilterCurrentFile",
-        },
-        -- window border thing
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        -- setting up with keys={} allows plugin to load when command runs at the start
-        keys = {
-            { "<leader>lg", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
-        },
-    }
 }
